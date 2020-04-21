@@ -1,7 +1,14 @@
+/*
+################
+This was just to help Tom trouble shoot a bit
+###############
+ */
+
+
+
 package org.launchcode.java.studios.areaofacircle;
 
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import static java.lang.Math.round;
 
@@ -16,13 +23,18 @@ public class AreaTakeTwo {
         double r;
 
         //start loop and continue until valid input is provided.
+        //validated input assigned to r
         do {
-            while (!input.hasNextDouble()) {
-                System.out.println("You must choose a number,\nwhat is your radius: ");
-                input.next();
+            while (!input.hasNextDouble() || input.nextDouble() <= 0) {
+                System.out.println("You must choose a number above zero,\nwhat is your radius: ");
+                input.nextLine();
             }
-            r = input.nextDouble();
-        } while (r < 0);
+//                System.out.println("1");
+//            if()
+
+            r = Double.parseDouble(input.match().group());
+        } while (r <= 0);
+
         input.close();
 
         //area of circle method call and final output
